@@ -1,0 +1,92 @@
+from tkinter import*
+window = Tk()
+calculate_RTX = ''
+pervoe_slogaemoe = 0
+vtoroe_slogaemoe = 0
+davai_plus = False
+davai_minus = False
+window.title('CALCULATOR RTX REMASTERED 13 DELUXE VERSION')
+window.geometry('500x500')
+window.resizable(height=False, width=False)
+frame = Frame(window, bg='green')
+frame.place(relheight=0.98, relwidth=0.98, relx=0.01, rely=0.01)
+label = Label(frame, text='0', font=100)
+label.place(x=1, y=1, width=488)
+buttons = []
+xb = 50
+yb = 300
+for i in range(10):
+    buttons.append(Button(frame, text=i, font=50))
+    if i == 0:
+        buttons[0].place (x=175, y=425, width = 100, height=60)
+    else:
+        buttons [i].place(x=xb, y=yb, width=100, height=100)
+        xb += 125
+        if xb > 300:
+            yb -= 125
+            xb = 50
+plys = Button(frame, text= "+", font= 100)
+plys.place(x=50, y=425, width=100, height=50)
+ravno_ravno = Button(frame, text= "=", font=50)
+ravno_ravno.place(x=300, y=425, width=100, height=50)
+def button(pervoe_slogaemoe):
+    global calculate_RTX
+    pervoe_slogaemoe = str(pervoe_slogaemoe)
+    calculate_RTX += pervoe_slogaemoe
+    label.config (text = calculate_RTX)
+for i in range(10):
+    buttons[i].config(command = lambda i = i :button (i))
+def ravno():
+    global calculate_RTX, vtoroe_slogaemoe, davai_plus
+    vtoroe_slogaemoe = calculate_RTX
+    vtoroe_slogaemoe = float(vtoroe_slogaemoe)
+    if davai_plus:
+        calculate_RTX = pervoe_slogaemoe + vtoroe_slogaemoe
+        label.config (text = calculate_RTX)
+        davai_plus = False
+def minuplus(mode):
+    global calculate_RTX, pervoe_slogaemoe, davai_plus
+    if calculate_RTX:
+        pervoe_slogaemoe = float(calculate_RTX)
+        calculate_RTX = ""
+        label.config(text=calculate_RTX)
+        if mode == "+":
+            davai_plus = True
+plys = Button(frame, text= "+", font=50, command=lambda:minuplus ("+"))
+plys.place(x=50, y=425, width=100, height=50)
+ravno_ravno = Button(frame, text= "=", font=50, command=ravno) 
+ravno_ravno.place(x=300, y=425, width=100, height=50)
+window.mainloop()
+
+
+pervoe_slogaemoe = 0
+vtoroe_slogaemoe = 0
+davai_plus = False
+davai_minus = False
+window.title('CALCULATOR RTX REMASTERED 13 DELUXE VERSION')
+window.geometry('500x500')
+window.resizable(height=False, width=False)
+frame = Frame(window, bg='green')
+frame.place(relheight=0.98, relwidth=0.98, relx=0.01, rely=0.01)
+label = Label(frame, text='0', font=100)
+label.place(x=1, y=1, width=488)
+buttons = []
+xb = 50
+yb = 300
+for i in range(10):
+    buttons.append(Button(frame, text=i, font=50))
+    if i == 0:
+        buttons[0].place (x=175, y=425, width = 100, height=60)
+    else:
+            buttons [i].place(x=xb, y=yb, width=100, height=100)
+            xb += 125
+            if xb > 300:
+                yb -= 125
+                xb = 50
+plys = Button(frame, text= "+", font= 100)
+plys.place(x=50, y=425, width=100, height=50)
+ravno_ravno = Button(frame, text= "=", font=50)
+ravno_ravno.place(x=300, y=425, width=100, height=50)
+def button(pervoe_slogaemoe):
+    global calculate_RTX
+    pervoe_slogaemoe = str(pervoe_slogaemoe)
