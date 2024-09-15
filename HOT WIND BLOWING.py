@@ -9,7 +9,7 @@ notes = []
 def hunting():
         global exp, food_suply, energy
         if energy <= 20:
-          print ("Я бы хотел продолжить охоту нооооо..... МНЕ ЛЕНЬ")
+          print ("Я бы хотел продолжить охоту, нооооо..... МНЕ ЛЕНЬ")
           return
         exp += 50
         food_suply += 25
